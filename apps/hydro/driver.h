@@ -12,6 +12,7 @@
 #include "tasks.h"
 #include "types.h"
 #include "../common/arguments.h"
+#include "ittnotify.h"
 
 // user includes
 #include <flecsi/execution/reduction.h>
@@ -107,7 +108,7 @@ flecsi_register_field(
 ///////////////////////////////////////////////////////////////////////////////
 int driver(int argc, char** argv) 
 {
-
+__itt_pause();
   // get the context
   auto & context = flecsi::execution::context_t::instance();
   auto rank = context.color();

@@ -3,6 +3,10 @@
 # All rights reserved.
 #~----------------------------------------------------------------------------~#
 
+set(VTUNE_DIR "/projects/opt/intel/vtune_amplifier_2018.3.0.558279/")
+include_directories(${VTUNE_DIR}/include)
+
+
 add_executable( hydro_2d
   $<TARGET_OBJECTS:apps_common> 
   driver.cc
@@ -11,7 +15,7 @@ add_executable( hydro_2d
   ${FLECSALE_RUNTIME_DRIVER}
   ${FLECSALE_RUNTIME_MAIN}
 )
-target_link_libraries( hydro_2d FleCSALE )
+target_link_libraries( hydro_2d FleCSALE ${VTUNE_DIR}/lib64/libittnotify.a )
 target_compile_definitions( 
   hydro_2d
   PRIVATE
