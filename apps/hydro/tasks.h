@@ -170,7 +170,6 @@ void evaluate_fluxes(
   dense_handle_r<real_t> a,
   dense_handle_w<flux_data_t> flux
 ) {
-__itt_resume();
 
   const auto & face_list = mesh.faces( flecsi::owned );
   auto num_faces = face_list.size();
@@ -205,7 +204,6 @@ __itt_resume();
 
   } // for
   //----------------------------------------------------------------------------
-__itt_pause();
 }
 
 template<typename T>

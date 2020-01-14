@@ -249,6 +249,7 @@ __itt_pause();
   //===========================================================================
   // Residual Evaluation
   //===========================================================================
+__itt_resume();
 
   for ( 
     size_t num_steps = 0;
@@ -341,7 +342,7 @@ __itt_pause();
   //===========================================================================
   f.wait();    
   auto tdelta = ristra::utils::get_wall_time() - tstart;
-
+__itt_pause();
   if ( rank == 0 ) {
 
     cout << "Final solution time is " 
